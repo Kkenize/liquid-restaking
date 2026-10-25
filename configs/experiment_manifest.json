@@ -1,0 +1,87 @@
+{
+  "description": "Fixed synthetic stress-test manifest for all paper experiments.",
+  "experiments": {
+    "A": {
+      "seeds": 5,
+      "n": 4,
+      "m": 12,
+      "kappa": "1..12",
+      "mc_samples": 80000
+    },
+    "B": {
+      "seeds": 10,
+      "m": 16,
+      "kappa": 4,
+      "mc_samples": 120000,
+      "fit_samples": [
+        250,
+        1000,
+        5000
+      ]
+    },
+    "C": {
+      "seeds": 8,
+      "m": 16,
+      "kappa": [
+        1,
+        4
+      ],
+      "global_share": [
+        0,
+        0.1,
+        0.25,
+        0.4,
+        0.55
+      ]
+    },
+    "D": {
+      "seeds": 5,
+      "n": [
+        1,
+        2,
+        4,
+        8,
+        12
+      ],
+      "b_scale": [
+        0.5,
+        1.5,
+        5
+      ],
+      "total_capital": 4
+    },
+    "E": {
+      "seeds": 2,
+      "sizes": [
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          16
+        ]
+      ],
+      "conditions": [
+        "easy",
+        "clustered",
+        "stress"
+      ]
+    },
+    "F": {
+      "seeds": 5,
+      "m": 12,
+      "kappa": 4,
+      "train_samples": 30000,
+      "eval_samples": 180000
+    }
+  }
+}

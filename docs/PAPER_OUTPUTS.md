@@ -1,10 +1,6 @@
 # Paper-output map
 
-This repository is the computational source for the empirical results in the
-arXiv and WWW versions of **Collateral Architecture and Correlated Slashing in
-Liquid Restaking**. Manuscript source files are maintained separately in
-Overleaf; this repository contains only the code and generated computational
-artifacts.
+This repository is the computational source for the empirical results in the WWW version of **Collateral Architecture and Correlated Slashing in Liquid Restaking**. Manuscript source files are maintained separately in Overleaf; this repository contains only the code and generated computational artifacts.
 
 ## WWW paper
 
@@ -27,13 +23,11 @@ The figure uses only these saved outputs:
 - `data/processed/experiment_b_misspecification.csv`
 - `data/processed/experiment_d_competition.csv`
 
-The architecture schematic in the WWW paper is a conceptual TikZ/LaTeX figure
-and belongs in the Overleaf project, not in this code repository.
+The architecture schematic in the WWW paper is a conceptual TikZ/LaTeX figure and belongs in the Overleaf project, not in this code repository.
 
 ## Rebuilding all paper artifacts
 
-A full reproduction run generates all individual figures, the WWW summary
-figure, all CSV and LaTeX tables, validation outputs, and checksums:
+A full reproduction run generates all individual figures, the WWW summary figure, all CSV and LaTeX tables, validation outputs, and checksums:
 
 ```bash
 python scripts/reproduce_all.py
@@ -46,5 +40,4 @@ python scripts/make_figures.py
 python scripts/make_www_summary_figure.py
 ```
 
-No figure in either paper should be edited manually after generation. If a
-plot needs to change, update the generating script and rerun it.
+No figure in the paper should be edited manually after generation. If a plot needs to change, update the generating script and rerun it.

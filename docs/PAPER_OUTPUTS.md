@@ -30,12 +30,6 @@ The figure uses only these saved outputs:
 The architecture schematic in the WWW paper is a conceptual TikZ/LaTeX figure
 and belongs in the Overleaf project, not in this code repository.
 
-## arXiv paper
-
-The arXiv paper draws from the individual PDF figures in `figures/` and the
-LaTeX tables in `results/tables/`. The source data behind every figure are
-listed in `docs/FIGURE_INDEX.md`.
-
 ## Rebuilding all paper artifacts
 
 A full reproduction run generates all individual figures, the WWW summary

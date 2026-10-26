@@ -254,7 +254,3 @@ Numerical results are expected to reproduce within ordinary floating-point and o
 Execution times and runtime-related figures are machine-dependent.
 
 The reproduction workflow records the software environment and generates output checks to support independent verification.
-
-## License
-
-A software license should be selected with the agreement of the relevant contributors before public distribution.

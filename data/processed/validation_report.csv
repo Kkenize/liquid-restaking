@@ -1,0 +1,7 @@
+test,value,tolerance,passed
+factor_covariance_max_abs_error,0.0004363546134241447,0.0015,True
+loss_mean_max_abs_error,0.000236389462989664,0.002,True
+loss_variance_max_abs_error,4.166377170762223e-05,0.002,True
+equilibrium_exploitability,6.030154223179984e-10,1e-07,True
+equilibrium_vi_residual,1.1446583686140095e-06,2e-06,True
+cross_solver_l2_spread,0.00030331531071707996,0.0005,True

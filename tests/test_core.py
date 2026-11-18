@@ -152,3 +152,16 @@ def test_cross_solver_agreement() -> None:
     assert vi_residual(env, br.x, V) < 2e-6
     assert vi_residual(env, pg.x, V) < 2e-6
     assert np.linalg.norm(br.x - pg.x) < 5e-4
+
+
+def test_cvar_with_ties():
+    from restaking_risk.metrics import var_cvar
+
+    losses = np.array(
+        [0.0] * 96 + [1.0] * 3 + [10.0]
+    )
+
+    var, cvar = var_cvar(losses, level=0.95)
+
+    assert np.isclose(cvar, 2.6)
+    assert np.isclose(var, 0.0) or np.isclose(var, 1.0)

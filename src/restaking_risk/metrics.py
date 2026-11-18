@@ -8,11 +8,36 @@ from .projection import project_profile
 from .solvers import solve_best_response
 
 
+
 def var_cvar(losses: np.ndarray, level: float = 0.95) -> tuple[float, float]:
     losses = np.asarray(losses, dtype=float)
+
+    if losses.ndim != 1 or losses.size == 0:
+        raise ValueError("losses must be a nonempty 1D array")
+    if not np.all(np.isfinite(losses)):
+        raise ValueError("losses must contain only finite values")
+    if not 0.0 < level < 1.0:
+        raise ValueError("level must lie strictly between 0 and 1")
+
+    sorted_losses = np.sort(losses)
+    n = sorted_losses.size
+    tail_mass = (1.0 - level) * n
+
+    full_count = int(np.floor(tail_mass))
+    fractional = tail_mass - full_count
+
+    tail_sum = (
+        float(np.sum(sorted_losses[-full_count:]))
+        if full_count > 0 else 0.0
+    )
+
+    if fractional > 1e-12:
+        tail_sum += fractional * sorted_losses[-full_count - 1]
+
+    cvar = tail_sum / tail_mass
     q = float(np.quantile(losses, level, method="higher"))
-    tail = losses[losses >= q - 1e-15]
-    return q, float(tail.mean()) if len(tail) else q
+
+    return q, float(cvar)
 
 
 def portfolio_statistics(x: np.ndarray, W: np.ndarray) -> dict[str, np.ndarray]:
